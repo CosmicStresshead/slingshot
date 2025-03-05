@@ -850,13 +850,13 @@ class Game:
                             a = 2
 
                         if not self.round_over:
-                            if event.key == K_UP:
+                            if event.key in [K_UP, K_w]:
                                 self.change_power(p)
-                            elif event.key == K_DOWN:
+                            elif event.key in [K_DOWN, K_s]:
                                 self.change_power(-p)
-                            elif event.key == K_LEFT:
+                            elif event.key in [K_LEFT, K_a]:
                                 self.change_angle(-a)
-                            elif event.key == K_RIGHT:
+                            elif event.key in [K_RIGHT, K_d]:
                                 self.change_angle(a)
 
                         if event.key == K_RETURN or event.key == K_SPACE:
@@ -872,13 +872,13 @@ class Game:
                                     self.net.close()
 
                     elif self.menu is not None:
-                        if event.key == K_UP:
+                        if event.key in [K_UP, K_w]:
                             self.menu.up()
-                        elif event.key == K_DOWN:
+                        elif event.key in [K_DOWN, K_s]:
                             self.menu.down()
-                        elif event.key == K_LEFT:
+                        elif event.key in [K_LEFT, K_a]:
                             self.menu.left()
-                        elif event.key == K_RIGHT:
+                        elif event.key in [K_RIGHT, K_d]:
                             self.menu.right()
                         elif event.key == K_RETURN or event.key == K_SPACE:
                             self.menu.select()
