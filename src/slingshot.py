@@ -942,7 +942,7 @@ class Game:
         if not os.path.exists(path):
             os.mkdir(path)
         path += "/settings"
-        f = file(path, 'wt')
+        f = open(path, 'wt')
         if self.bounce:
             f.write("Bounce: 1\n")
         else:
