@@ -31,6 +31,7 @@
 - Menu sound (DONE)
 
 ### MUSIC
+- Implement music (DONE)
 - Create some spacey loops / tracks (configurable)
 
 ### Add debug screen
