@@ -52,6 +52,9 @@ from slingshot.particle import *
 from slingshot.menu import *
 from slingshot.network import *
 from slingshot.inputbox import *
+pygame.mixer.init()
+from slingshot.sound import *
+
 
 #class Blackhole(object):
 #   softspace = 0
@@ -257,7 +260,8 @@ class Game:
 
     def round_init(self):
         pygame.key.set_repeat(Settings.KEY_DELAY, Settings.KEY_REPEAT)
-
+        music_track.stop()
+        music_track.play()
         if self.round == Settings.MAX_ROUNDS:
             self.new_game(self.net_client, self.net_host)
 
@@ -864,6 +868,7 @@ class Game:
                                 if self.net.send((self.players[self.player].get_angle(), self.players[self.player].get_power(), True)) is False:
                                     self.menu = self.net_error_menu
                                     self.net.close()
+                            # player_fire.play()
                             self.fire()
                         else:
                             if self.net_play():
@@ -873,14 +878,19 @@ class Game:
 
                     elif self.menu is not None:
                         if event.key in [K_UP, K_w]:
+                            menu_item_hover.play()
                             self.menu.up()
                         elif event.key in [K_DOWN, K_s]:
+                            menu_item_hover.play()
                             self.menu.down()
                         elif event.key in [K_LEFT, K_a]:
+                            menu_item_hover.play()
                             self.menu.left()
                         elif event.key in [K_RIGHT, K_d]:
+                            menu_item_hover.play()
                             self.menu.right()
                         elif event.key == K_RETURN or event.key == K_SPACE:
+                            menu_item_select.play()
                             self.menu.select()
             self.lock.acquire()
             self.update()

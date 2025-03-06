@@ -25,6 +25,7 @@
 import pygame
 from slingshot.settings import *
 from slingshot.general import *
+from slingshot.sound import *
 
 class Menu:
 
@@ -56,6 +57,7 @@ class Menu:
 			self.up()
 
 	def left(self):
+
 		self.up()
 
 	def down(self):
