@@ -28,8 +28,10 @@
 - Optional because in space no-one can hear you 
 - Option to hear resonance when projectile approaches/passes
 - Using SFXR (configurable)
+- Menu sound (DONE)
 
 ### MUSIC
+- Implement music (DONE)
 - Create some spacey loops / tracks (configurable)
 
 ### Add debug screen
