@@ -232,6 +232,7 @@ class Game:
         return result
 
     def new_game(self, net_client=False, net_host=False):
+        pygame.mixer.music.play(loops=-1)
         Settings.MAX_PLANETS = self.max_planets
         Settings.BOUNCE = self.bounce
         Settings.INVISIBLE = self.invisible
@@ -260,8 +261,6 @@ class Game:
 
     def round_init(self):
         pygame.key.set_repeat(Settings.KEY_DELAY, Settings.KEY_REPEAT)
-        music_track.stop()
-        music_track.play()
         if self.round == Settings.MAX_ROUNDS:
             self.new_game(self.net_client, self.net_host)
 
@@ -396,6 +395,7 @@ class Game:
         if self.round_over:
             self.round_init()
         elif not self.firing:
+            player_fire.play()
             self.missile.launch(self.players[self.player])
             self.players[self.player].attempts += 1
             self.last = self.player
